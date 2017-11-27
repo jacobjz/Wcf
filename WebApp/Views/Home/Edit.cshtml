@@ -1,0 +1,75 @@
+﻿@model WebApp.DbServiceRef.wniosekWithDecyzja
+
+@{
+    ViewBag.Title = "EditView";
+}
+
+<h2>EditView</h2>
+
+@using (Html.BeginForm("Update", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>wniosekWithDecyzja</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+  
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.Id_wniosek, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id_wniosek, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Id_wniosek, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.Numer_wniosku, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Numer_wniosku, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Numer_wniosku, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2">Klient</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Klient_skrot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Klient_skrot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="control-label col-md-2">Kwota kredytu brutto</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Kwota_kredytu_brutto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Kwota_kredytu_brutto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+  
+
+        <div class="form-group">
+            <p class="control-label col-md-2">Wnioskowana kwota kredytu</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Wnioskowana_kwota_kredytu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Wnioskowana_kwota_kredytu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p class="control-label col-md-2">Data rejestracji wniosku</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Data_rejestracji_wniosku, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Data_rejestracji_wniosku, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListaWnioskow", new { data1 = ViewBag.Date1, data2 = ViewBag.Date2 })
+</div>

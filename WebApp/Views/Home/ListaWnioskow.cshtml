@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApp.DbServiceRef.wniosekWithDecyzja>
+
+@{
+    var List = Model;
+    ViewBag.Title = "Lista Wniosków";
+}
+
+<h2>Lista Wniosków<img src="https://cdn.bulbagarden.net/upload/thumb/6/6b/137Porygon.png/250px-137Porygon.png" style="width:40px;height:40px"/></h2>
+
+
+<table class="table table-hover" id="wnioskiTable">
+    <tr>
+        <th >
+          Data rejestracji wniosku
+        </th>
+        <th>
+          Id wniosku
+        </th>
+        <th>
+           Klient
+        </th>
+        <th>
+            Kwota kredytu brutto
+        </th>
+        <th>
+          Numer wniosku
+        </th>
+        <th>
+           Kwota kredytu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="vertical-align:middle;">
+            @Html.DisplayFor(modelItem => item.Data_rejestracji_wniosku)
+        </td>
+        <td style="vertical-align:middle;">
+            @Html.DisplayFor(modelItem => item.Id_wniosek)
+        </td>
+        <td>
+        @{
+            var name = item.Klient_skrot;
+            var link = "http://www.pokestadium.com/sprites/xy/" + item.Klient_skrot + ".gif";
+            <img id="pokemonSprite" src=@link alt=@item.Klient_skrot />
+
+
+
+        }
+      
+          
+        </td>
+        <td style="vertical-align:middle;"> 
+            @Html.DisplayFor(modelItem => item.Kwota_kredytu_brutto)
+        </td>
+        <td style="vertical-align:middle;">
+            @Html.DisplayFor(modelItem => item.Numer_wniosku)
+        </td >
+        <td style="vertical-align:middle;">
+            @Html.DisplayFor(modelItem => item.Wnioskowana_kwota_kredytu)
+        </td>
+        <td style="vertical-align:middle;">
+            @Html.ActionLink("Edit", "Edit", new { id_wniosek = item.Id_wniosek })
+            <img src="https://cdn.bulbagarden.net/upload/thumb/6/6b/137Porygon.png/250px-137Porygon.png" style="width:20px;height:20px" />
+        </td>
+    </tr>
+}
+
+</table>

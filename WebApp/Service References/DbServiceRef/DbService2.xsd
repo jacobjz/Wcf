@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55879/DbService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfZadanko.dto" />
+  <xs:element name="GetWnioskiBetweenDates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateTo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWnioskiBetweenDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfZadanko.dto" minOccurs="0" name="GetWnioskiBetweenDatesResult" nillable="true" type="q1:ArrayOfwniosekWithDecyzja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWniosek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_wniosek" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWniosekResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfZadanko.dto" minOccurs="0" name="GetWniosekResult" nillable="true" type="q2:wniosekWithDecyzja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditWniosek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idw" type="xs:int" />
+        <xs:element minOccurs="0" name="ks" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="kkb" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="wkk" nillable="true" type="xs:double" />
+        <xs:element minOccurs="0" name="drw" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditWniosekResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

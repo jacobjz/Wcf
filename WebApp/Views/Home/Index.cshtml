@@ -1,0 +1,60 @@
+﻿@section SPAViews {
+    @Html.Partial("_Home")
+
+
+}
+@model WebApp.Models.InputModel
+    <div id="ImageDiv">
+        <img src="https://archive-media-0.nyafuu.org/vp/image/1481/42/1481420602685.gif"/>
+    </div>
+<div class="col-md-12" id="InputFields">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+     
+        @Html.TextBoxFor(model => model.dateFrom, new { id = "DateFromBox", placeholder="Data od" })
+  
+        @Html.TextBoxFor(model => model.dateTo, new { id = "DateToBox" , placeholder = "Data do" })
+        <br />
+        <div id="ButtonDiv">
+            <button type="submit" id="SearchButton" class="btn btn-primary">Search</button>
+        </div>
+    }
+</div>
+
+<div>
+
+</div>
+    @section Scripts{
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/app")
+
+    }
+<style>
+    #InputFields{
+
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    border: 3px solid;
+    border-color: #0074D9;
+    }
+   #DateFromBox{
+        border-radius: 5px;
+        margin-left:19%;
+
+    }
+    #DateToBox{
+        border-radius: 5px;
+         margin-left:16%;
+
+    }
+
+    #ButtonDiv{
+        text-align: center;
+    }
+    #ImageDiv{
+         text-align: center;
+    }
+</style>
